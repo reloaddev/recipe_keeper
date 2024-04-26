@@ -1,0 +1,44 @@
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+<script type=text/javascript>
+    $(function() {
+      $('button#submit-btn').on('click', function(e) {
+        e.preventDefault()
+        var input = $('input')[0]
+        $.ajax('/recipe', {
+          data: JSON.stringify({url: input.value}),
+          contentType: "application/json",
+          type: "POST",
+          success: (response) => {
+            $('#result').append('<pre>' + JSON.stringify(response, null, 2) + '</pre>')
+          },
+          dataType: "json"
+        })
+        return false;
+      });
+    });
+</script>
+
+<!doctype html>
+<html>
+
+<head>
+  <link rel="stylesheet" href="../static/style.css">
+  <title>Recipe Webscraper</title>
+</head>
+
+<body>
+  <div id="content">
+    <h1>Import your favorite recipe</h1>
+    <div id="url-input">
+      <input placeholder="URL" />
+      <button id="submit-btn">Import</button>
+    </div>
+    <div id="result">
+    </div>
+  </div>
+  <div id="footer">
+    from 2024 by&nbsp;<a href="https://github.com/reloaddev/">reloaddev</a>.
+  </div>
+</body>
+
+</html>
