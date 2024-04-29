@@ -9,13 +9,25 @@
           contentType: "application/json",
           type: "POST",
           success: (response) => {
-            $('#result').append('<pre>' + JSON.stringify(response, null, 2) + '</pre>')
+            $('#result').append('<h3>' + JSON.stringify(response[0].title, null, 2) + '</h3>')
+            $('#result').append('<p>' + JSON.stringify(response[0].instructions, null, 2) + '</p>')
+            $('#result').append(makeUL(response[0].ingredients))
           },
           dataType: "json"
         })
         return false;
       });
     });
+
+    function makeUL(items) {
+      var list = document.createElement('ul');
+      for (var item of items) {
+        var itemElement = document.createElement('li');
+        itemElement.appendChild(document.createTextNode(item.amount + ' ' + item.name));
+        list.appendChild(itemElement);
+      }
+      return list;
+    }
 </script>
 
 <!doctype html>
@@ -29,6 +41,7 @@
 <body>
   <div id="content">
     <h1>Import your favorite recipe</h1>
+    <h2>https://www.chefkoch.de/rezepte/2892251441536454/Gemischter-Salat-mit-Feta-Kaese.html</h2>
     <div id="url-input">
       <input placeholder="URL" />
       <button id="submit-btn">Import</button>
