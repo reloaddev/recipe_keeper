@@ -1,0 +1,28 @@
+2024-04-30 18:12:56 [scrapy] DEBUG: Crawled (200) <GET https://biancazapatka.com/en/vegan-lasagna-bolognese/> (referer: None)
+2024-04-30 18:12:56 [scrapy] DEBUG: Scraped from <200 https://biancazapatka.com/en/vegan-lasagna-bolognese/>
+{'title': 'The Best Vegan Lasagna', 'ingredients': [{'amount': '2-3 tbsp', 'name': 'olive oil'}, {'amount': '1 lbs', 'name': 'vegan ground beef'}, {'amount': '3 ', 'name': 'cloves of garlic'}, {'amount': '1 ', 'name': 'large onion'}, {'amount': '2 ', 'name': 'carrots'}, {'amount': '2 ', 'name': 'stalks of celery'}, {'amount': '½ cup', 'name': 'red wine'}, {'amount': '14 oz', 'name': 'tomato passata'}, {'amount': '14 oz', 'name': 'chopped tomatoes'}, {'amount': '2 tbsp', 'name': 'tomato paste'}, {'amount': '1 tbsp', 'name': 'Italian herbs'}, {'amount': ' ', 'name': 'salt and pepper'}, {'amount': '9-12 ', 'name': 'lasagna sheets'}, {'amount': '2 tbsp', 'name': 'vegan butter'}, {'amount': '2 tbsp', 'name': 'flour'}, {'amount': '2 cups', 'name': 'soy milk'}, {'amount': ' ', 'name': 'salt and pepper'}, {'amount': '1 pinch', 'name': 'of nutmeg'}, {'amount': '2 tbsp', 'name': 'nutritional yeast flakes'}, {'amount': ' ', 'name': 'vegan cheese'}, {'amount': ' ', 'name': 'vegan parmesan'}, {'amount': ' ', 'name': 'fresh basil'}], 'instructions': 'Heat 1-2 tablespoons of oil in a non-stick pan and fry the vegan ground beef according to package directions until crumbly. Then set aside.<br><br>Heat the remaining oil in a large deep pan or pot. Add the onions, carrots and celery and sauté for 2-3 minutes until the onions are translucent. Then add the garlic and sauté for 30 seconds. Next, add tomato paste and Italian herbs and sauté for a few seconds.<br><br>Now stir in the vegan ground beef. Then deglaze with red wine and let it boil down briefly. Now stir in chopped tomatoes and tomato passata, season with a little salt and pepper and simmer the Bolognese sauce for about 15 minutes with a lid on it until it has thickened well. Taste and adjust seasonings as needed and allow to cool slightly.<br><br>Melt the vegan butter in a saucepan over medium heat. Then whisk in the flour and sweat for 1 minute, stirring constantly. Now slowly add the soy milk and bring to a boil, continuing to stir until the sauce thickens. Season to taste with salt, pepper, nutmeg and nutritional yeast flakes. Then remove from heat and set aside.<br><br>Preheat the oven to 392 °F (200 °C). Brush a baking dish with a little oil.<br><br>First spread a thin layer of Bolognese sauce on the bottom of the baking dish. Then alternate layers of lasagna sheets, bolognese and béchamel on top. Finish with a thick layer of béchamel sauce. Finally, sprinkle with some vegan grated cheese and/or <br><br>Let the lasagna cool down a bit while it becomes more sliceable. Then garnish with fresh basil and enjoy!'}
+2024-04-30 18:12:56 [scrapy] INFO: Closing spider (finished)
+2024-04-30 18:12:56 [scrapy] INFO: Dumping Scrapy stats:
+{'downloader/request_bytes': 245,
+ 'downloader/request_count': 1,
+ 'downloader/request_method_count/GET': 1,
+ 'downloader/response_bytes': 94731,
+ 'downloader/response_count': 1,
+ 'downloader/response_status_count/200': 1,
+ 'elapsed_time_seconds': 1.384672,
+ 'finish_reason': 'finished',
+ 'finish_time': datetime.datetime(2024, 4, 30, 16, 12, 56, 496451, tzinfo=datetime.timezone.utc),
+ 'httpcompression/response_bytes': 434987,
+ 'httpcompression/response_count': 1,
+ 'item_scraped_count': 1,
+ 'log_count/DEBUG': 4,
+ 'log_count/INFO': 7,
+ 'memusage/max': 81186816,
+ 'memusage/startup': 81186816,
+ 'response_received_count': 1,
+ 'scheduler/dequeued': 1,
+ 'scheduler/dequeued/memory': 1,
+ 'scheduler/enqueued': 1,
+ 'scheduler/enqueued/memory': 1,
+ 'start_time': datetime.datetime(2024, 4, 30, 16, 12, 55, 111779, tzinfo=datetime.timezone.utc)}
+2024-04-30 18:12:56 [scrapy] INFO: Spider closed (finished)
