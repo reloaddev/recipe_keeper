@@ -3,6 +3,7 @@
 import { useState } from "react";
 import Recipe from "./recipe/[id]";
 import { getSpider } from "../lib/scrape.util";
+import {Menu} from "react-feather";
 
 export default function Home() {
 
@@ -20,13 +21,20 @@ export default function Home() {
   }
 
   return (
-    <main className="flex min-h-screen flex-col items-center justify-center p-10 gap-2">
-      <h1 className="text-3xl">Scrape your favorite recipe!</h1>
-      <div className="w-3/4 flex justify-center gap-2">
-        <input type="text" onChange={event => setUrl(event.target.value)} value={url} className="w-5/6 border-2 border-black rounded-lg p-1" placeholder="Recipe URL" />
-        <button onClick={scrape} className="border-2 border-black rounded-lg p-1">Import</button>
-      </div>
-      {recipe != undefined && <Recipe recipe={recipe} />}
-    </main>
+      <>
+          <header className="flex justify-between items-center bg-gray-500 h-16 p-8">
+              <h1 className="text-2xl text-white">Recipe Scraper</h1>
+              <Menu size={30} color="white"/>
+          </header>
+          <main className="h-[calc(100vh-4rem)] flex flex-col items-center justify-center p-2 sm:p-10 gap-2">
+              <h1 className="text-3xl">Scrape your favorite recipe!</h1>
+              <div className="flex justify-center w-full sm:w-3/4 px-3">
+                  <input type="text" onChange={event => setUrl(event.target.value)} value={url}
+                         className="w-5/6 border-2 border-black rounded-lg p-1" placeholder="Recipe URL"/>
+                  <button onClick={scrape} className="border-2 border-black rounded-lg p-1">Import</button>
+              </div>
+              {recipe != undefined && <Recipe recipe={recipe}/>}
+          </main>
+      </>
   );
 }
