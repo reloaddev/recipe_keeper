@@ -9,8 +9,8 @@
 
 BOT_NAME = "recipe_scraper"
 
-SPIDER_MODULES = ["scraping.spiders"]
-NEWSPIDER_MODULE = "scraping.spiders"
+SPIDER_MODULES = ["spiders"]
+NEWSPIDER_MODULE = "spiders"
 
 
 # Crawl responsibly by identifying yourself (and your website) on the user-agent

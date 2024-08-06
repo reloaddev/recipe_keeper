@@ -16,7 +16,7 @@ export default function Home() {
     if (spider === undefined) return;
     const response = await fetch(`${SCRAPER_URL}?spider_name=${getSpider(url)}&url=${url}`);
     const json = await response.json();
-    setRecipe(() => json.items[0])
+    setRecipe(() => ({...json.items[0], url: url}))
   }
 
   return (

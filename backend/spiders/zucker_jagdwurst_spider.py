@@ -1,7 +1,5 @@
 import scrapy
-from scraping.util.utils import is_number, is_unit
-from scraping.util.formatter import format_ingredient
-
+from util.utils import is_number, is_unit
 
 class ZuckerJagdwurstSpider(scrapy.Spider):
     name = "zucker_jagdwurst"
@@ -72,5 +70,5 @@ class IngredientFormatter:
         return self.formatted_ingredients
 
     def add_ingredient(self, amount, name):
-        self.formatted_ingredients.append(format_ingredient(amount, name))
+        self.formatted_ingredients.append({"amount": amount, "name": name})
         return self.formatted_ingredients

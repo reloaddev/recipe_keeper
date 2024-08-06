@@ -10,3 +10,6 @@ htmlcov/
 docs/_build/
 .logs/
 .DS_Store
+lib/
+logs/
+bin/
