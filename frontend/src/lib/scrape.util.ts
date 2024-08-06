@@ -4,10 +4,10 @@ export type Ingredient = {
 };
 
 export type Recipe = {
-    title: string;
-    url: string;
-    ingredients: Ingredient[];
-    instructions: string;
+    title?: string;
+    url?: string;
+    ingredients?: Ingredient[];
+    instructions?: string;
 }
 
 export function getSpider(url: string) {
@@ -15,4 +15,4 @@ export function getSpider(url: string) {
     if (url.includes("zuckerjagdwurst.com")) return 'zucker_jagdwurst';
     if (url.includes("biancazapatka.com")) return 'bianca_zapatka';
     return undefined;
-};
+}

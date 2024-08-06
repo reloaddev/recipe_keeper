@@ -1,12 +1,12 @@
-import { Ingredient } from "@/src/lib/scrape.util";
+import {Recipe} from "@/src/lib/scrape.util";
 
-export default function Recipe(recipe: any) {
+export default function RecipeView({recipe}: {recipe: Recipe}) {
 
-    const title = recipe.recipe.title;
-    const ingredientList: Ingredient[] = recipe.recipe.ingredients;
-    const instructions: string = recipe.recipe.instructions;
-    const ingredientItems = ingredientList.map(ingredient => <li>{ingredient.amount} {ingredient.name}</li>)
-    const formattedInstructions = instructions.replaceAll("<br>", "\n").trimEnd();
+    const title = recipe.title;
+    const ingredientList = recipe.ingredients;
+    const instructions = recipe.instructions;
+    const ingredientItems = ingredientList?.map(ingredient => <li key={ingredient.name}>{ingredient.amount} {ingredient.name}</li>)
+    const formattedInstructions = instructions?.replaceAll("<br>", "\n").trimEnd();
 
     async function saveRecipe() {
         await fetch("/api", {
@@ -17,13 +17,13 @@ export default function Recipe(recipe: any) {
     }
 
     return (
-        <div className="w-full mt-10 p-10 border-solid border-2 border-black rounded-lg">
+        <div className="flex flex-col my-5 sm:mt-20 p-5 sm:p-10 border-solid border-2 border-black rounded-lg">
             <h1 className="text-2xl">{title}</h1>
             <h1 className="text-xl mt-7">Ingredients</h1>
             <ul>{ingredientItems}</ul>
             <h1 className="text-xl mt-7">Instructions</h1>
             <div className="display-linebreak">{formattedInstructions}</div>
-            <button onClick={saveRecipe} className="border-2 border-black rounded-lg p-1">Save</button>
+            <button onClick={saveRecipe} className="mt-5 border-2 border-black rounded-lg p-1 ml-auto">Save</button>
         </div>
     )
 
