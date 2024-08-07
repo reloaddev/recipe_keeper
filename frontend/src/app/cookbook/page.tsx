@@ -3,17 +3,34 @@
 import {useEffect, useState} from "react";
 import {Recipe} from "@/src/lib/scrape.util";
 import {useRouter} from "next/navigation";
+import {Trash2} from "react-feather";
 
 export default function CookBook() {
+
+    async function deleteRecipe(id: number | undefined) {
+        if (!id) throw new Error("Recipe has no ID!");
+        const response = await fetch("/api/cookbook", {
+            method: "DELETE",
+            body: JSON.stringify({id: id})
+        });
+        if (response.ok) {
+            const updatedRecipes = recipes.filter(recipe => recipe.id !== id);
+            setRecipes(updatedRecipes);
+        }
+    }
 
     const router = useRouter();
     const [recipes, setRecipes] = useState<Recipe[]>([]);
     const recipeListItems = recipes.map(recipe => (
-        <p key={recipe.title}
-           className="text-xl text-gray-500 p-5 border-2 rounded-xl shadow-md"
-           onClick={() => router.push("/cookbook/" + recipe.id)}>
-            {recipe.title}
-        </p>
+        <div key={recipe.title} className="flex justify-between items-center p-5 border-2 rounded-xl shadow-md">
+            <p className="text-gray-500"
+               onClick={() => router.push("/cookbook/" + recipe.id)}>
+                {recipe.title?.length ?? 0 > 32 ? recipe.title?.substring(0, 32) + "..." : recipe.title}
+            </p>
+            <button onClick={() => deleteRecipe(recipe.id)}>
+                <Trash2 color={"gray"}/>
+            </button>
+        </div>
     ));
 
     useEffect(() => {

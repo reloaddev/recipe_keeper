@@ -9,3 +9,16 @@ export async function GET(request: Request) {
     await prisma.$disconnect();
     return Response.json({status: 200, recipes: recipes});
 }
+
+export async function DELETE(request: Request) {
+    const { id } = await request.json();
+    await prisma.$connect();
+    await prisma.recipe.delete({
+        where: { id: id }
+    }).catch(err => {
+        console.error(err);
+        return Response.json({status: 500, ok: false});
+    });
+    await prisma.$disconnect();
+    return Response.json({status: 200, ok: true, deletedRecipeId: id});
+}
