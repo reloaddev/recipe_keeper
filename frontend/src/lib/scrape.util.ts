@@ -4,6 +4,7 @@ export type Ingredient = {
 };
 
 export type Recipe = {
+    id?: number;
     title?: string;
     url?: string;
     ingredients?: Ingredient[];

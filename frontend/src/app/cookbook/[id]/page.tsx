@@ -1,0 +1,35 @@
+import {PrismaClient} from "@prisma/client";
+import {Recipe} from "@/src/lib/scrape.util";
+
+const getRecipe = (async ({params}: { params: { id: string } }) => {
+    const recipeId = +params.id;
+    const prisma = new PrismaClient();
+    await prisma.$connect();
+    const recipe = await prisma.recipe.findUniqueOrThrow({
+        where: {id: recipeId}
+    }).catch(err => console.error(err));
+    await prisma.$disconnect();
+    return recipe || {};
+})
+
+export default async function Page({params}: {params: { id: string} }) {
+    const recipe: Recipe = await getRecipe({params});
+    const title = recipe?.title;
+    const ingredientList = recipe?.ingredients;
+    const instructions = recipe?.instructions;
+    const ingredientItems = ingredientList?.map(ingredient => <li key={ingredient.name}>{ingredient.amount} {ingredient.name}</li>)
+    const formattedInstructions = instructions?.replaceAll("<br>", "\n").trimEnd();
+    const url = recipe?.url;
+
+    return (
+        <div className="flex flex-col my-5 sm:mt-20 m-5 p-5 sm:p-10 border-solid border-2 border-black rounded-lg">
+            <h1 className="text-2xl">{title}</h1>
+            <h1 className="text-xl mt-7">Ingredients</h1>
+            <ul>{ingredientItems}</ul>
+            <h1 className="text-xl mt-7">Instructions</h1>
+            <div className="display-linebreak">{formattedInstructions}</div>
+            <div className="mt-10 display-linebreak">Source</div>
+            <div>{url}</div>
+        </div>
+    )
+}

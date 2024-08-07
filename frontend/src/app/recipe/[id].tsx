@@ -12,7 +12,7 @@ export default function RecipeView({recipe}: {recipe: Recipe}) {
         await fetch("/api", {
             method: 'POST',
             mode: 'cors',
-            body: JSON.stringify({ title: title, ingredients: ingredientList, instructions: formattedInstructions })
+            body: JSON.stringify({ title: title, ingredients: ingredientList, instructions: formattedInstructions, url:  recipe.url})
         })
     }
 

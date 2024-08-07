@@ -8,13 +8,11 @@ export async function POST(request: Request) {
     await prisma.recipe.create({
         data: {
             title: body?.title,
-            url: "",
             ingredients: body?.ingredients,
-            instructions: body?.instructions
+            instructions: body?.instructions,
+            url: body?.url
         }
-    }).catch(e => {
-        console.log(e);
-    });
-    await prisma.$disconnect;
+    }).catch(err => console.error(err));
+    await prisma.$disconnect();
     return Response.json({status: 200});
 }

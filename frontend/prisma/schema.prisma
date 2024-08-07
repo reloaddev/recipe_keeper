@@ -8,10 +8,9 @@ datasource db {
 }
 
 model recipe {
+  id            Int       @id @default(autoincrement())
   title        String
   url          String
   ingredients  Json   @db.Json
   instructions String
-
-  @@id([title, url])
 }
