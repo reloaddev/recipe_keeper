@@ -1,5 +1,6 @@
 import {PrismaClient} from "@prisma/client";
 import {Recipe} from "@/src/lib/scrape.util";
+import BackButton from "@/src/app/cookbook/[id]/BackButton";
 
 const getRecipe = (async ({params}: { params: { id: string } }) => {
     const recipeId = +params.id;
@@ -22,8 +23,11 @@ export default async function Page({params}: {params: { id: string} }) {
     const url = recipe?.url;
 
     return (
-        <div className="flex flex-col my-5 sm:mt-20 m-5 p-5 sm:p-10 border-solid border-2 border-black rounded-lg">
-            <h1 className="text-2xl">{title}</h1>
+        <div className="flex flex-col my-5 sm:mt-20 m-5 px-5 sm:p-10 border-solid border-2 border-black rounded-lg">
+            <div className="flex flex-col-reverse mt-3 gap-3 sm:flex-row sm:items-center sm:justify-center">
+                <h1 className="text-2xl">{title}</h1>
+                <BackButton/>
+            </div>
             <h1 className="text-xl mt-7">Ingredients</h1>
             <ul>{ingredientItems}</ul>
             <h1 className="text-xl mt-7">Instructions</h1>
