@@ -34,7 +34,7 @@ export function RecipeParser() {
     }
 
     return (
-        <div className="flex flex-col sm:items-center sm:px-52 gap-2 px-3 mt-2">
+        <div className="flex flex-col sm:items-center gap-2 px-3 mt-2">
             <h3 className="text-xl self-start">Web Scraper</h3>
             <div className="flex flex-col w-full gap-1">
                 <input type="text"

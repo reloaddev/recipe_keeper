@@ -6,9 +6,9 @@ export default function Home() {
 
     return (
         <>
-            <main className="flex flex-col p-2 sm:p-10">
-                <RecipeParser/>
-            </main>
+                <main className="flex flex-col p-2 sm:p-10">
+                    <RecipeParser/>
+                </main>
         </>
     );
 }
