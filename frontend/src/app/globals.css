@@ -5,3 +5,20 @@
 .display-linebreak {
     white-space: pre-line;
 }
+
+.text-violet {
+    color: #A3166F;
+}
+
+.bg-violet {
+    background-color: #A3166F;
+}
+
+.border-violet {
+    border-color: #A3166F;
+}
+
+.violet::placeholder {
+    color: #A3166F;
+}
+

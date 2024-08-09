@@ -23,7 +23,7 @@ export default function RecipeView({recipe}: {recipe: Recipe}) {
             <ul>{ingredientItems}</ul>
             <h1 className="text-xl mt-7">Instructions</h1>
             <div className="display-linebreak">{formattedInstructions}</div>
-            <button onClick={saveRecipe} className="mt-5 border-2 border-black rounded-lg p-1 ml-auto">Save</button>
+            <button onClick={saveRecipe} className="w-1/3 mt-5 text-white bg-violet rounded-lg p-2 ml-auto">Save</button>
         </div>
     )
 

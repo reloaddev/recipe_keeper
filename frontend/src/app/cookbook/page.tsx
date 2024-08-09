@@ -5,7 +5,7 @@ import {Recipe} from "@/src/lib/scrape.util";
 import {useRouter} from "next/navigation";
 import {Trash2} from "react-feather";
 
-export default function CookBook() {
+export default function Page() {
 
     async function deleteRecipe(id: number | undefined) {
         if (!id) throw new Error("Recipe has no ID!");
@@ -44,6 +44,7 @@ export default function CookBook() {
 
     return (
         <div className="flex flex-col gap-5 p-5">
+            <h3 className="text-xl">Saved Recipes</h3>
             {recipeListItems}
         </div>
     )

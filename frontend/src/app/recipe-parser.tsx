@@ -34,14 +34,14 @@ export function RecipeParser() {
     }
 
     return (
-        <div className="px-3">
-            <h1 className="text-xl text-gray-500">Scrape your favorite recipe!</h1>
-            <div className="flex w-full sm:w-3/4">
+        <div className="flex flex-col gap-2 px-3 mt-2">
+            <h3 className="text-xl">Web Scraper</h3>
+            <div className="flex flex-col w-full sm:w-3/4 gap-1">
                 <input type="text"
-                       className="w-5/6 border-2 border-gray-500 rounded-lg p-1" placeholder="Recipe URL"
+                       className="border-2 border-gray-500 rounded-lg p-2" placeholder="Recipe URL"
                        onChange={event => setUrl(event.target.value)} value={url}/>
                 <button
-                    className="text-gray-500 border-2 border-gray-500 rounded-lg p-1"
+                    className="w-1/3 self-end text-white bg-violet rounded-lg p-2"
                     onClick={scrape}>
                     Import
                 </button>
