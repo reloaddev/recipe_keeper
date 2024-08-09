@@ -43,7 +43,7 @@ export default function Page() {
     }, []);
 
     return (
-        <div className="flex flex-col gap-5 p-5">
+        <div className="flex flex-col gap-5 px-5 py-5 sm:px-52 sm:mt-6">
             <h3 className="text-xl">Saved Recipes</h3>
             {recipeListItems}
         </div>
