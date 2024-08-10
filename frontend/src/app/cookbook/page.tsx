@@ -29,7 +29,7 @@ export default function Page() {
              onClick={() => router.push("/cookbook/" + recipe.id)}>
             <p className="text-gray-500">
                 {isMobile
-                    ? (recipe.title?.length!! > 32 ? (recipe.title?.substring(0, 32) + "...") : recipe.title)
+                    ? (recipe.title?.length!! > 30 ? (recipe.title?.substring(0, 30) + "...") : recipe.title)
                     : (recipe.title?.length!! > 70 ? (recipe.title?.substring(0, 70) + "...") : recipe.title)
                 }
             </p>

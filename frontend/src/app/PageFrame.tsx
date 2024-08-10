@@ -11,6 +11,7 @@ export default function PageFrame({children}: Readonly<{ children: React.ReactNo
     useEffect(() => {
         const fullConfig = resolveConfig(tailwindConfig);
         const smBreakpoint = +fullConfig.theme.screens.sm.replace(/\D/g, "");
+        setIsMobile(window.screen.width < smBreakpoint);
         window.addEventListener("resize", () => setIsMobile(window.screen.width < smBreakpoint));
     }, []);
 
