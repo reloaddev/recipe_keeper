@@ -9,8 +9,7 @@ export async function POST(request: Request) {
         return Response.json({status: 400, error: "Missing userId", recipes: []});
     }
     await prisma.$connect();
-    const recipes = await prisma.recipe.findMany({where: { userId: userId }})
-        .catch(err => console.error(err));
+    const recipes = await prisma.recipe.findMany({where: { userId: userId }}).catch(err => console.error(err));
     await prisma.$disconnect();
     return Response.json({status: 200, recipes: recipes});
 }

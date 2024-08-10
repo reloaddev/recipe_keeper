@@ -1,6 +1,6 @@
 "use client"
 
-import {useContext, useEffect, useState} from "react";
+import React, {useContext, useEffect, useState} from "react";
 import {Recipe} from "@/src/lib/scrape.util";
 import {useRouter} from "next/navigation";
 import {Trash2} from "react-feather";
@@ -12,7 +12,8 @@ export default function Page() {
     const userId = session?.user?.id;
     const isMobile = useContext(ResponsiveContext).isMobile;
 
-    async function deleteRecipe(id: number | undefined) {
+    async function deleteRecipe(ev: React.MouseEvent<HTMLButtonElement>, id: number | undefined) {
+        ev.stopPropagation();
         if (!id) throw new Error("Recipe has no ID!");
         const response = await fetch("/api/cookbook", {
             method: "DELETE",
@@ -36,13 +37,15 @@ export default function Page() {
                     : (recipe.title?.length!! > 70 ? (recipe.title?.substring(0, 70) + "...") : recipe.title)
                 }
             </p>
-            <button onClick={() => deleteRecipe(recipe.id)}>
+            <button className="m-2"
+                onClick={ev => deleteRecipe(ev, recipe.id)}>
                 <Trash2 color={"gray"}/>
             </button>
         </div>
     ));
 
     useEffect(() => {
+        console.log("use effect", userId);
         async function fetchRecipes() {
             return await fetch("/api/cookbook", {
                 method: "POST",
@@ -50,10 +53,12 @@ export default function Page() {
             });
         }
 
-        fetchRecipes().then(response => {
-            response.ok && response.json().then(data => setRecipes(data.recipes));
-        });
-    }, [userId]);
+        fetchRecipes()
+            .then(response => {
+                response.ok && response.json().then(data => setRecipes(data.recipes))
+            })
+            .catch(() => setRecipes([]));
+    }, [session, userId]);
 
     return (
         <div className="flex flex-col gap-5 px-5 py-5 sm:mt-6">
