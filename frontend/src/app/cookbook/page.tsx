@@ -3,7 +3,7 @@
 import React, {useContext, useEffect, useState} from "react";
 import {Recipe} from "@/src/lib/scrape.util";
 import {useRouter} from "next/navigation";
-import {Trash2} from "react-feather";
+import {Meh, Trash2} from "react-feather";
 import {ResponsiveContext} from "@/src/app/ResponsiveContext";
 import {useSession} from "next-auth/react";
 
@@ -11,6 +11,7 @@ export default function Page() {
     const {data: session} = useSession();
     const userId = session?.user?.id;
     const isMobile = useContext(ResponsiveContext).isMobile;
+    const [loading, setLoading] = useState(true);
 
     async function deleteRecipe(ev: React.MouseEvent<HTMLButtonElement>, id: number | undefined) {
         ev.stopPropagation();
@@ -38,14 +39,13 @@ export default function Page() {
                 }
             </p>
             <button className="m-2"
-                onClick={ev => deleteRecipe(ev, recipe.id)}>
+                    onClick={ev => deleteRecipe(ev, recipe.id)}>
                 <Trash2 color={"gray"}/>
             </button>
         </div>
     ));
 
     useEffect(() => {
-        console.log("use effect", userId);
         async function fetchRecipes() {
             return await fetch("/api/cookbook", {
                 method: "POST",
@@ -53,17 +53,30 @@ export default function Page() {
             });
         }
 
+        setLoading(true);
         fetchRecipes()
             .then(response => {
                 response.ok && response.json().then(data => setRecipes(data.recipes))
             })
-            .catch(() => setRecipes([]));
+            .catch(() => {
+                setRecipes([]);
+                setLoading(false);
+            });
+        setTimeout(() => {
+            setLoading(false);
+        }, 300);
     }, [session, userId]);
 
     return (
         <div className="flex flex-col gap-5 px-5 py-5 sm:mt-6">
             <h3 className="text-xl">Saved Recipes</h3>
-            {recipeListItems}
+            {!loading && recipeListItems}
+            {!loading && recipes.length === 0 &&
+                <div className="flex flex-col items-center gap-4 mt-64 self-center">
+                    <Meh size={80} strokeWidth={1} color={"gray"}/>
+                    <p className="text-gray-500 ">No recipes saved yet</p>
+                </div>
+            }
         </div>
     )
 }
