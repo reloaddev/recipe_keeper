@@ -2,9 +2,9 @@ import RecipeView from "@/src/app/recipe/[id]";
 import {getSpider} from "@/src/lib/scrape.util";
 import {useState} from "react";
 import {isEmpty} from "lodash";
-import {EmptyState} from "@/src/app/empty-state";
-import {LoadingState} from "@/src/app/loading-state";
-import {ErrorState} from "@/src/app/error-state";
+import {EmptyState} from "@/src/app/scraper/EmptyState";
+import {LoadingState} from "@/src/app/scraper/LoadingState";
+import {ErrorState} from "@/src/app/scraper/ErrorState";
 
 export function RecipeParser() {
 
