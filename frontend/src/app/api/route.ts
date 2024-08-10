@@ -10,7 +10,8 @@ export async function POST(request: Request) {
             title: body?.title,
             ingredients: body?.ingredients,
             instructions: body?.instructions,
-            url: body?.url
+            url: body?.url,
+            userId: body?.userId
         }
     }).catch(err => console.error(err));
     await prisma.$disconnect();

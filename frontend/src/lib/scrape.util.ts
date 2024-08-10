@@ -9,6 +9,7 @@ export type Recipe = {
     url?: string;
     ingredients?: Ingredient[];
     instructions?: string;
+    userId?: string;
 }
 
 export function getSpider(url: string) {

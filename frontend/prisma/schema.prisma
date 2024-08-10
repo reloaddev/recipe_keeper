@@ -13,6 +13,7 @@ model Recipe {
   url          String
   ingredients  Json   @db.Json
   instructions String
+  userId String
 }
 
 model User {

@@ -5,8 +5,11 @@ import {Recipe} from "@/src/lib/scrape.util";
 import {useRouter} from "next/navigation";
 import {Trash2} from "react-feather";
 import {ResponsiveContext} from "@/src/app/ResponsiveContext";
+import {useSession} from "next-auth/react";
 
 export default function Page() {
+    const {data: session} = useSession();
+    const userId = session?.user?.id;
     const isMobile = useContext(ResponsiveContext).isMobile;
 
     async function deleteRecipe(id: number | undefined) {
@@ -41,13 +44,16 @@ export default function Page() {
 
     useEffect(() => {
         async function fetchRecipes() {
-            return await fetch("/api/cookbook");
+            return await fetch("/api/cookbook", {
+                method: "POST",
+                body: JSON.stringify({userId: userId}),
+            });
         }
 
         fetchRecipes().then(response => {
             response.ok && response.json().then(data => setRecipes(data.recipes));
         });
-    }, []);
+    }, [userId]);
 
     return (
         <div className="flex flex-col gap-5 px-5 py-5 sm:mt-6">

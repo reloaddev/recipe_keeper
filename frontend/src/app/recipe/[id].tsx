@@ -21,7 +21,8 @@ export default function RecipeView({recipe}: { recipe: Recipe }) {
                 title: title,
                 ingredients: ingredientList,
                 instructions: formattedInstructions,
-                url: recipe.url
+                url: recipe.url,
+                userId: session?.user?.id
             })
         })
     }
