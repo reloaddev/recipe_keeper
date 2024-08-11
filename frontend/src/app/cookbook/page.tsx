@@ -4,7 +4,7 @@ import React, {useContext, useEffect, useState} from "react";
 import {Recipe} from "@/src/lib/scrape.util";
 import {useRouter} from "next/navigation";
 import {Meh, Trash2} from "react-feather";
-import {ResponsiveContext} from "@/src/app/ResponsiveContext";
+import {ResponsiveContext} from "@/src/app/context/ResponsiveContext";
 import {useSession} from "next-auth/react";
 
 export default function Page() {

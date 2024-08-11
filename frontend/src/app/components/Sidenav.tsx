@@ -68,14 +68,14 @@ export function Sidenav({show, setter}: { show: boolean, setter: (val: any) => v
                         </span>
                         <button
                             className="w-full p-4 rounded-2xl text-white bg-violet"
-                            onClick={() => signOut()}>
+                            onClick={() => signOut({callbackUrl: "/scraper"})}>
                             Sign Out
                         </button>
                     </>)}
                     {!session?.user &&
                         <button
                             className="w-full p-4 rounded-2xl text-white bg-violet"
-                            onClick={() => signIn("google")}>
+                            onClick={() => signIn("google", {callbackUrl: "/scraper"})}>
                             Sign In
                         </button>
                     }

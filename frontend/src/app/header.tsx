@@ -2,7 +2,7 @@
 
 import {Menu} from "react-feather";
 import {useRouter} from "next/navigation";
-import {Sidenav} from "@/src/app/sidenav/Sidenav";
+import {Sidenav} from "@/src/app/components/Sidenav";
 import {useState} from "react";
 
 export default function Header() {

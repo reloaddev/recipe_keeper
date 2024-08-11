@@ -1,6 +1,6 @@
 "use client"
 
-import {ResponsiveContext} from "@/src/app/ResponsiveContext";
+import {ResponsiveContext} from "@/src/app/context/ResponsiveContext";
 import {useEffect, useState} from "react";
 import resolveConfig from "tailwindcss/resolveConfig";
 import tailwindConfig from "@/tailwind.config";
