@@ -6,7 +6,7 @@ import {Compass, Heart, Unlock} from "react-feather";
 import {signIn, signOut, useSession} from "next-auth/react";
 
 
-export function Sidenav({show, setter}: { show: boolean, setter: (val: any) => void }) {
+export function Sidenav({show, setShow}: { show: boolean, setShow: (val: any) => void }) {
     const {data: session} = useSession();
     const pathname = usePathname();
 
@@ -20,7 +20,7 @@ export function Sidenav({show, setter}: { show: boolean, setter: (val: any) => v
             <Link
                 href={route}
                 onClick={() => {
-                    setter((oldVal: any) => !oldVal);
+                    setShow((oldVal: any) => !oldVal);
                 }}
                 className={`w-full rounded-xl flex text-md p-2 ${colorClass}`}
             >
@@ -36,7 +36,7 @@ export function Sidenav({show, setter}: { show: boolean, setter: (val: any) => v
         <div
             className={`flex md:hidden fixed top-0 right-0 bottom-0 left-0 bg-black/50 z-30`}
             onClick={() => {
-                setter((oldVal: any) => !oldVal);
+                setShow((oldVal: any) => !oldVal);
             }}
         />
     )

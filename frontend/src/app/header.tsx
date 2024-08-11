@@ -25,7 +25,7 @@ export default function Header() {
                 <Tooltip id="unauthed-user" place="bottom"/>
                 <Menu onClick={() => setShowSidebar(oldVal => !oldVal)} size={30} color="white"/>
             </div>
-            <Sidenav show={showSidebar} setter={setShowSidebar}/>
+            <Sidenav show={showSidebar} setShow={setShowSidebar}/>
         </header>
     )
 }

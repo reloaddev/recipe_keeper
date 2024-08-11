@@ -62,9 +62,7 @@ export default function Page() {
                 setRecipes([]);
                 setLoading(false);
             });
-        setTimeout(() => {
-            setLoading(false);
-        }, 300);
+        setLoading(false);
     }, [session, userId]);
 
     return (
