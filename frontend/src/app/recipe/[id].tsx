@@ -1,10 +1,8 @@
 import {Recipe} from "@/src/lib/scrape.util";
-import {useRouter} from "next/navigation";
 import {useSession} from "next-auth/react";
 import {useState} from "react";
 
 export default function RecipeView({recipe}: { recipe: Recipe }) {
-    const router = useRouter();
     const {data: session, status} = useSession();
     const [saving, setSaving] = useState(false);
     const [saved, setSaved] = useState(false);
@@ -51,9 +49,8 @@ export default function RecipeView({recipe}: { recipe: Recipe }) {
                 </button>
             }
             {status === "unauthenticated" &&
-                <p className="mt-5 text-violet ml-auto"
-                   onClick={() => router.push('/')}>
-                    Login to save recipes
+                <p className="mt-5 text-violet ml-auto">
+                    Sign In to save recipes.
                 </p>}
         </div>
     )

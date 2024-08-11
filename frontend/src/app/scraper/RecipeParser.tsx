@@ -1,3 +1,5 @@
+"use client"
+
 import RecipeView from "@/src/app/recipe/[id]";
 import {getSpider} from "@/src/lib/scrape.util";
 import {useState} from "react";
