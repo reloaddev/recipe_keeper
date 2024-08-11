@@ -14,6 +14,14 @@
     background-color: #A3166F;
 }
 
+.bg-violet-opacity-30 {
+    background-color: rgb(163, 22, 111, 0.3);
+}
+
+.bg-violet-opacity-20 {
+    background-color: rgb(163, 22, 111, 0.2);
+}
+
 .border-violet {
     border-color: #A3166F;
 }

@@ -28,8 +28,8 @@ export default async function Home() {
         <div className="flex flex-col items-center px-10">
             <div className="w-full flex flex-col items-end justify-center mt-20">
                 <div className="flex items-center">
-                    <Book size={80} strokeWidth={2} color="#A3166F"/>
-                    <Heart size={80} strokeWidth={2} color="#A3166F"/>
+                    <Book size={80} strokeWidth={1.5} color="black"/>
+                    <Heart size={80} strokeWidth={1.5} color="black"/>
                 </div>
                 <p className="w-2/3 text-end">Your Recipe Cookbook</p>
             </div>
