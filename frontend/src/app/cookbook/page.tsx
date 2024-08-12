@@ -6,6 +6,7 @@ import {useRouter} from "next/navigation";
 import {Meh, Trash2} from "react-feather";
 import {ResponsiveContext} from "@/src/app/context/ResponsiveContext";
 import {useSession} from "next-auth/react";
+import {ClockLoader} from "react-spinners";
 
 export default function Page() {
     const {data: session} = useSession();
@@ -62,12 +63,16 @@ export default function Page() {
                 setRecipes([]);
                 setLoading(false);
             });
-        setLoading(false);
+        setTimeout(() => setLoading(false), 2000);
     }, [session, userId]);
 
     return (
         <div className="flex flex-col gap-5 px-5 py-5 sm:mt-6">
             <h3 className="text-xl">Saved Recipes</h3>
+            {loading && (<div className={"flex flex-col gap-2 items-center self-center"}>
+                <ClockLoader className={"mt-72"}/>
+                <p>Loading Recipes...</p>
+            </div>)}
             {!loading && recipeListItems}
             {!loading && recipes.length === 0 &&
                 <div className="flex flex-col items-center gap-4 mt-64 self-center">
