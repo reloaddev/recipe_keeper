@@ -18,8 +18,8 @@ export default function RootLayout({children}: Readonly<{ children: React.ReactN
         <html lang="en">
         <body className={inter.className}>
         <SessionProvider>
-            <Header/>
             <PageFrame>
+                <Header/>
                 {children}
             </PageFrame>
         </SessionProvider>

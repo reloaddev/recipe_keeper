@@ -32,19 +32,19 @@ export function RecipeParser() {
         const response = await fetch(`${SCRAPER_URL}?spider_name=${getSpider(url)}&url=${url}`);
         const json = await response.json();
         setRecipe(() => ({...json.items[0], url: url}))
-        setTimeout(() => setIsLoading(false), 2000);
+        setTimeout(() => setIsLoading(false), 1000);
     }
 
     return (
-        <div className="flex flex-col sm:items-center gap-2 px-3 mt-2">
-            <h3 className="text-xl self-start">Web Scraper</h3>
+        <div className="flex flex-col sm:items-center gap-2 px-3 sm:px-40 mt-2 sm:mt-20">
+            <h3 className="text-xl sm:text-3xl self-start">Web Scraper</h3>
             <div className="flex flex-col w-full gap-1">
                 <input type="text"
                        className="border-2 border-gray-500 rounded-lg p-2" placeholder="Recipe URL"
                        onChange={event => setUrl(event.target.value)} value={url}/>
                 <div className="flex gap-1 justify-end self-end w-2/3">
                     <button
-                        className="w-1/2 text-white bg-gray-600 rounded-lg p-2 sm:p-3"
+                        className="w-1/2 sm:w-1/4 text-white bg-gray-600 rounded-lg p-2 sm:p-3"
                         onClick={() => {
                             setUrl("");
                             setRecipe({});
@@ -52,7 +52,7 @@ export function RecipeParser() {
                         Clear
                     </button>
                     <button
-                        className="w-1/2 text-white bg-violet rounded-lg p-2 sm:p-3"
+                        className="w-1/2 sm:w-1/4 text-white bg-violet rounded-lg p-2 sm:p-3"
                         onClick={scrape}>
                         Import
                     </button>

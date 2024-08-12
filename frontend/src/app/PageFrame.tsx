@@ -16,7 +16,7 @@ export default function PageFrame({children}: Readonly<{ children: React.ReactNo
     }, []);
 
     return (
-        <div className="w-full sm:px-60">
+        <div className="w-full sm:px-[40rem]">
             <ResponsiveContext.Provider value={{isMobile: isMobile}}>
                 {children}
             </ResponsiveContext.Provider>

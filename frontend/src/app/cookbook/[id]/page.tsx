@@ -33,7 +33,7 @@ export default async function Page({params}: {params: { id: string} }) {
             <h1 className="text-xl mt-7">Instructions</h1>
             <div className="display-linebreak">{formattedInstructions}</div>
             <div className="mt-10 display-linebreak">Source</div>
-            <a href={url} className="underline break-all">{url}</a>
+            <a href={url} className="underline break-all mb-4">{url}</a>
         </div>
     )
 }
