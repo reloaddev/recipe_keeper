@@ -42,11 +42,21 @@ export function RecipeParser() {
                 <input type="text"
                        className="border-2 border-gray-500 rounded-lg p-2" placeholder="Recipe URL"
                        onChange={event => setUrl(event.target.value)} value={url}/>
-                <button
-                    className="w-1/3 sm:w-1/12 self-end text-white bg-violet rounded-lg p-2 sm:p-3"
-                    onClick={scrape}>
-                    Import
-                </button>
+                <div className="flex gap-1 justify-end self-end w-2/3">
+                    <button
+                        className="w-1/2 text-white bg-gray-600 rounded-lg p-2 sm:p-3"
+                        onClick={() => {
+                            setUrl("");
+                            setRecipe({});
+                        }}>
+                        Clear
+                    </button>
+                    <button
+                        className="w-1/2 text-white bg-violet rounded-lg p-2 sm:p-3"
+                        onClick={scrape}>
+                        Import
+                    </button>
+                </div>
             </div>
             {!isLoading && !scrapeError && !isEmpty(recipe) && <RecipeView recipe={recipe}/>}
             {!isLoading && !scrapeError && isEmpty(recipe) && <EmptyState/>}

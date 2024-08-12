@@ -10,6 +10,7 @@ class ZuckerJagdwurstSpider(scrapy.Spider):
     def parse(self, response):
         title = response.css("h1 > span::text").get()
         ingredients = self.parse_ingredients(response)
+        print(ingredients)
         instructions = self.parse_instructions(response)
         yield {"title": title, "ingredients": ingredients, "instructions": instructions}
 
@@ -44,6 +45,7 @@ class IngredientFormatter:
         pass
 
     def format_ingredients(self, ingredients):
+        self.formatted_ingredients = []
         text_ingredients = ingredients.css("::text").getall()
         for ingredient in text_ingredients:
             ingredient_parts = ingredient.split(" ")

@@ -10,8 +10,8 @@ export default function RecipeView({recipe}: { recipe: Recipe }) {
     const title = recipe.title;
     const ingredientList = recipe.ingredients;
     const instructions = recipe.instructions;
-    const ingredientItems = ingredientList?.map(ingredient => <li
-        key={ingredient.name}>{ingredient.amount} {ingredient.name}</li>)
+    const ingredientItems = ingredientList?.map(ingredient =>
+        <li key={ingredient.name + Math.random()}>{ingredient.amount} {ingredient.name}</li>)
     const formattedInstructions = instructions?.replaceAll("<br>", "\n").trimEnd();
 
     async function saveRecipe() {

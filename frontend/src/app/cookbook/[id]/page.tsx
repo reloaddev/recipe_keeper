@@ -18,7 +18,7 @@ export default async function Page({params}: {params: { id: string} }) {
     const title = recipe?.title;
     const ingredientList = recipe?.ingredients;
     const instructions = recipe?.instructions;
-    const ingredientItems = ingredientList?.map(ingredient => <li key={ingredient.name}>{ingredient.amount} {ingredient.name}</li>)
+    const ingredientItems = ingredientList?.map(ingredient => <li key={ingredient.name + Math.random()}>{ingredient.amount} {ingredient.name}</li>)
     const formattedInstructions = instructions?.replaceAll("<br>", "\n").trimEnd();
     const url = recipe?.url;
 
