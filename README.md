@@ -8,4 +8,4 @@ Supported Websites: chefkoch.de [GER], zuckerjagdwurst.com [GER], biancazapatka.
 ## Start
 - Start frontend application: ```npm run dev```
 - Start backend application: ```scrapyrt```
-- Start database: 
+- Start database: ```brew services start postgresql@16```
