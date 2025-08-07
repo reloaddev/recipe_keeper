@@ -6,7 +6,7 @@ import resolveConfig from "tailwindcss/resolveConfig";
 import tailwindConfig from "@/tailwind.config";
 
 export default function PageFrame({children}: Readonly<{ children: React.ReactNode }>) {
-    const [isMobile, setIsMobile] = useState(false);
+    const [isMobile, setIsMobile] = useState(true);
 
     useEffect(() => {
         const fullConfig = resolveConfig(tailwindConfig);
